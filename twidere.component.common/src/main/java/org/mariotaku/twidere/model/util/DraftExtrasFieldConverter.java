@@ -43,7 +43,7 @@ import java.lang.reflect.ParameterizedType;
 public class DraftExtrasFieldConverter implements CursorFieldConverter<ActionExtras> {
     @Override
     public ActionExtras parseField(Cursor cursor, int columnIndex, ParameterizedType fieldType) throws IOException {
-        final String actionType = cursor.getString(cursor.getColumnIndex(Drafts.ACTION_TYPE));
+        final String actionType = cursor.getString(cursor.getColumnIndexOrThrow(Drafts.ACTION_TYPE));
         final String json = cursor.getString(columnIndex);
         return parseExtras(actionType, json);
     }
