@@ -37,7 +37,7 @@ import java.lang.reflect.ParameterizedType;
 public class ConversationExtrasConverter implements CursorFieldConverter<ConversationExtras> {
     @Override
     public ConversationExtras parseField(Cursor cursor, int columnIndex, ParameterizedType fieldType) throws IOException {
-        final String extrasType = cursor.getString(cursor.getColumnIndex(Messages.Conversations.CONVERSATION_EXTRAS_TYPE));
+        final String extrasType = cursor.getString(cursor.getColumnIndexOrThrow(Messages.Conversations.CONVERSATION_EXTRAS_TYPE));
         if (TextUtils.isEmpty(extrasType)) return null;
         return ConversationExtras.parse(extrasType, cursor.getString(columnIndex));
     }
