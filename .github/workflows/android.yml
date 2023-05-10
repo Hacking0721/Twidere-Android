@@ -50,6 +50,6 @@ jobs:
 
       with:
 
-          name: app-debug
+          name: twidere-debug
 
-          path: app/build/outputs/apk/debug/app-debug.apk
+          path: .github/workflows/app/build/outputs/apk/debug/app-debug.apk
