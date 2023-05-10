@@ -38,7 +38,7 @@ import java.lang.reflect.ParameterizedType;
 public class TabExtrasFieldConverter implements CursorFieldConverter<TabExtras> {
     @Override
     public TabExtras parseField(Cursor cursor, int columnIndex, ParameterizedType fieldType) throws IOException {
-        final String tabType = Tab.getTypeAlias(cursor.getString(cursor.getColumnIndex(Tabs.TYPE)));
+        final String tabType = Tab.getTypeAlias(cursor.getString(cursor.getColumnIndexOrThrow(Tabs.TYPE)));
         if (TextUtils.isEmpty(tabType)) return null;
         return TabExtras.parse(tabType, cursor.getString(columnIndex));
     }
