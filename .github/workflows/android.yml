@@ -52,4 +52,4 @@ jobs:
 
           name: Twidere-debug
 
-          path: Twidere-debug.apk
+          path: twidere/Twidere-debug.apk
