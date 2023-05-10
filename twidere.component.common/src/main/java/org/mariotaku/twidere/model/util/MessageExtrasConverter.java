@@ -37,7 +37,7 @@ import java.lang.reflect.ParameterizedType;
 public class MessageExtrasConverter implements CursorFieldConverter<MessageExtras> {
     @Override
     public MessageExtras parseField(Cursor cursor, int columnIndex, ParameterizedType fieldType) throws IOException {
-        final String messageType = cursor.getString(cursor.getColumnIndex(Messages.MESSAGE_TYPE));
+        final String messageType = cursor.getString(cursor.getColumnIndexOrThrow(Messages.MESSAGE_TYPE));
         if (TextUtils.isEmpty(messageType)) return null;
         return MessageExtras.parse(messageType, cursor.getString(columnIndex));
     }
