@@ -52,4 +52,4 @@ jobs:
 
           name: twidere-debug
 
-          path: .github/workflows/app-debug.apk
+          path: .github/workflows/twidere-debug.apk
