@@ -39,7 +39,7 @@ public class TabArgumentsFieldConverter implements CursorFieldConverter<TabArgum
 
     @Override
     public TabArguments parseField(Cursor cursor, int columnIndex, ParameterizedType fieldType) throws IOException {
-        final String tabType = Tab.getTypeAlias(cursor.getString(cursor.getColumnIndex(Tabs.TYPE)));
+        final String tabType = Tab.getTypeAlias(cursor.getString(cursor.getColumnIndexOrThrow(Tabs.TYPE)));
         if (TextUtils.isEmpty(tabType)) return null;
         return TabArguments.parse(tabType, cursor.getString(columnIndex));
     }
