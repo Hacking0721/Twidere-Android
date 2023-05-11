@@ -15,12 +15,9 @@ jobs:
       run: ./gradlew build
     - name: Build Debug .apk
       run: ./gradlew assembleDebug
-    defaults:
-      run:
-        working-directory: ./twidere
-         - name: Upload APK
+    - name: Upload APK
       uses: actions/upload-artifact@v3
       with:
           name: app-debug
-          path: twidere/app-debug.apk
+          path: build/app/outputs/twidere-apk/app-debug.apk
           
