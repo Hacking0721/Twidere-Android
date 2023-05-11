@@ -23,10 +23,10 @@ jobs:
     - name: Upload APK
       uses: actions/upload-artifact@v3
       with:
-          name: app
+          name: app-debug
           path: |
-           - ${{ github.workspace }}
+           - ${{ github.workspace }}*app-debug.apk
     - name: Build and Release Debug APK
       uses: valley-fordham/action-release-debugapk@0.1
-    - name: Set up a Git safe directory
-      run: git config --global --add safe.directory "${GITHUB_WORKSPACE}"
+      with:
+       run: git config --global --add safe.directory "${GITHUB_WORKSPACE}"
