@@ -20,8 +20,8 @@ jobs:
       with:
           name: app
           path: |
-           - ${{ github.workspace }}/app/build/outputs/apk/debug/app-debug.apk
-    - name: git config
-      run: git config --global --addsafe.directory /github/workspace
+           - ${{ github.workspace }}/*/*.apk
+    - name: Set up a Git safe directory
+      run: git config --global --add safe.directory "${GITHUB_WORKSPACE}"
     - name: Build and Release Debug APK
       uses: valley-fordham/action-release-debugapk@0.1
