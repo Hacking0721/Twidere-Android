@@ -20,4 +20,4 @@ jobs:
       with:
           name: app-debug
           path: |
-           - ${{ github.workspace }}/app/build/outputs/apk/*
+           - ${{ github.workspace }}*/app-debug.apk
