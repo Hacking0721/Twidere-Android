@@ -18,6 +18,6 @@ jobs:
     - name: Upload APK
       uses: actions/upload-artifact@v3
       with:
-          name: app-debug
+          name: app
           path: |
-           - ${{ github.workspace }}*/app-debug.apk
+           - ${{ github.workspace }}/app/build/outputs/apk/debug/app-debug.apk
