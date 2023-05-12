@@ -20,21 +20,15 @@ jobs:
       run: ./gradlew build
     - name: Build Debug .apk
       run: ./gradlew assembleDebug
-    - name: Create zip with symlink
-      run: zip --symlinks -r myzip.zip ./*
     - name: Upload zip as artifact
       uses: actions/upload-artifact@v3
       with:
-          name: test
-          path: myzip.zip
-    
-    - name: Upload APK
+          name: archive
+          path: ./*
+    - name: Upload APK as artifact
       uses: actions/upload-artifact@v3
       with:
-          name: app-debug
+          name: twidere-fdroid-debug
           path: |
-           - ${{ github.workspace }}*app-debug.apk
-    - name: Build and Release Debug APK
-      uses: valley-fordham/action-release-debugapk@0.1
-      with:
-       run: git config --global --add safe.directory "${GITHUB_WORKSPACE}"
+           - ${{ github.workspace }}/twidere/build/outputs/apk/fdroid/debug/twidere-fdroid-debug.apk
+  
